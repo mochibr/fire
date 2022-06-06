@@ -16,7 +16,10 @@ const App = () => {
   }
 
   const deleteItem = (id) => {
-    setListData(ListDataView.filter(item => item.id !== id));
+    if(window.confirm("Are you sure want to delete this?")){
+      setListData(ListDataView.filter(item => item.id !== id));
+    }
+    
   };
 
   return (
