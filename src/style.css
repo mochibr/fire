@@ -1,0 +1,9 @@
+.header-bar{
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    text-transform: capitalize;
+}
+.header-bar h2{
+    padding: 20px 0px;
+}

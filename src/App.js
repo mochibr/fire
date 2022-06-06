@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./Components/Header";
+import TaskForm from "./Components/TaskForm";
+import TaskList from "./Components/TaskList";
+import ListData from "./Components/Data/ListData";
+import { useState } from "react";
+import "./style.css";
+const App = () => {
+  // const arr = ["khan", "pardeep", "garg"];
+  const title = "To Do App";
+  const [ListDataView, setListData] = useState(ListData);
 
-function App() {
+  const addNewData = (addNewValue) => {
+    addNewValue.id = Math.floor(Math.random() * 100);
+    console.log(addNewValue);
+    setListData([addNewValue, ...ListDataView]);
+  }
+
+  const deleteItem = (id) => {
+    setListData(ListDataView.filter(item => item.id !== id));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <>
+        <div className="container py-5 h-100">
+          <div className="row d-flex justify-content-center align-items-center h-100">
+            <div className="col col-lg-9 col-xl-7">
+              <div className="card rounded-3">
+                <div className="card-body p-4">
+                 <Header title={title} />
+                 <TaskForm addNewData={addNewData}/>
+                 <TaskList ListView={ListDataView} deleteItem={deleteItem}/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
+    </>
+  );
+};
 export default App;
