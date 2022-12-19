@@ -1,29 +1,46 @@
-What is React?
-React is a JavaScript library created by Facebook
+<!DOCTYPE html>
+<html lang="en">
 
-What is React JS?
-React JS is an open-source JavaScript library for developed by Facebook. It’s used for building interactive user interfaces based on UI components and single-page applications.
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <title>jQuery click not working on ajax loaded content</title> -->
+    <!-- <title>Add active class to li onclick jQuery</title> -->
+    <title>jQuery add active class to li on click </title>
+</head>
+<style>
 
-React JS is an open-source JavaScript library for building user interfaces – usually for single-page and mobile applications.
+    ul.nav li {
+        display: inline-block;
+        color: #000;
+        padding: 10px;
+        border: 1px solid #000;
+        border-radius: 5px;
+        font-family: 'Circular-Loom';
+        cursor: pointer;
+    }
 
-why use reactjs ?
-1. Easy to learn
-simple to use
-2. Flexibility
-3. Reusable components
-4. Fast Rendering
-5. SEO Friendly
-2. Strong community support
-6. Open source
+    ul.nav li.active {
+        background: #000;
+        color: #fff;
+    }
 
+</style>
+<body>
+    <ul class="nav">
+        <li class="active">Home</li>
+        <li>About</li>
+        <li>Blog</li>
+        <li>Contact Us</li>
+    </ul>
+</body>
+<script>
+$(".nav li").on('click', function(){
+    $(".nav li").removeClass('active');
+    $(this).addClass('active');
+});
+</script>
 
-1. HTML and CSS
-2. VANILLA JAVASCRIPT
-    let, const and Array
-    Loops (for, forEach, for-of, map, Filter, Reduce)
-    Arrow functions
-    ES6 classes
-    Destructuring assignment
-    Array functions especially Map and filter
-    ES6 modules
-    Asynchronous JavaScript
+</html>
