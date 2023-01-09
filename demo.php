@@ -1,16 +1,42 @@
+<?php
 require_once("db_connect.php");
-if (isset($_POST["export"])) {
-    $output = fopen("php://output", "w");
-    $sql = "SELECT * from users ORDER BY id DESC";
-    $query = mysqli_query($conn, $sql);
-    $arr = array();
-    foreach ($query as $data) {
-        $arr[] = $data;
+require_once 'dompdf/autoload.inc.php';
+use Dompdf\Dompdf;
+extract($_POST);
+
+if (isset($submit)) {
+$sql = "SELECT * from users ORDER BY id DESC";
+$query = mysqli_query($conn, $sql);
+$html = "";
+if (mysqli_num_rows($query) > 0) {
+    $html .= '
+    <table class="table" style="width: 100%; border-collapse: collapse;">
+        <tr>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">First Name</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Last Name</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">City</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Country</th>
+        </tr>
+    ';
+    while ($row = mysqli_fetch_array($query)) {
+        $html .= '
+        <tr>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">' . $row["full_name"] . '</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">' . $row["full_name"] . '</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">' . $row["full_name"] . '</td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">' . $row["full_name"] . '</td>
+        </tr>';
     }
-    fwrite($output, json_encode($arr, JSON_PRETTY_PRINT));
-    header('Content-Type: text/json; charset=utf-8');
-    header('Content-Disposition: attachment; filename=data.json');
-    fclose($output);
+
+    $html .= '</table>';
+    // echo $html;
+    $dompdf = new DOMPDF();
+    $dompdf->loadHtml($html);
+    $dompdf->setPaper('A4', 'portrait');
+    $dompdf->render();
+    $dompdf->stream("data.pdf");
+}
+
 }
 
 
