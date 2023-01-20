@@ -156,3 +156,210 @@ if (isset($_POST)) {
 }    
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <h2>Bordered Table</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Pick 1-4 Wicket Keeper</th>
+            <th>Pick 1-6 Bastmen</th>
+            <th>Pick 1-6 All Rounders</th>
+            <th>Pick 1-6 Bowlers</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fina Allen (NZ)</td>
+            <td>Henry Nicholls (NZ)</td>
+            <td>Michael Bracewell (NZ)</td>
+            <td>Henry Shipley (NZ)</td>
+          </tr>
+          <tr>
+            <td>Tom Latham</td>
+            <td>Devon Conway (NZ)</td>
+            <td>Mitchell Santner (NZ)</td>
+            <td>Lockie Ferguson (NZ)</td>
+          </tr>
+          <tr>
+            <td>Ishan Kishan</td>
+            <td>Mark Chapman(NZ)</td>
+            <td>Daryl Mitchell (NZ)</td>
+            <td>Blair Tickner (NZ)</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Shubman Gill (IND)</td>
+            <td>Glenn Phillips (NZ)</td>
+            <td>Ish Sodhi (NZ)</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Rohit Sharma (IND)</td>
+            <td>Doug Bracewell (NZ)</td>
+            <td>Jacob Duffy (NZ)</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Virat Kohli (IND)</td>
+            <td>Hardik Pandya (IND)</td>
+            <td>Mohammed Shami (IND)</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Suryakumar Yadav (IND)</td>
+            <td>Washington Sundar (IND)</td>
+            <td>Mohammed Siraj (IND)</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Rajat Patidar (IND)</td>
+            <td>Shahbaz Ahmed (IND)</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Teams</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Team 1</th>
+            <th>Team 2</th>
+            <th>Team 3</th>
+            <th>Team 4</th>
+            <th>Team 5</th>
+            <th>Team 6</th>
+            <th>Team 7</th>
+            <th>Team 8</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Rohit Sharma (IND) C</td>
+            <td>Shubman Gill (IND) C</td>
+            <td>Virat Kohli (IND) C</td>
+            <td>Virat Kohli (IND) C</td>
+            <td>Ishan Kishan (IND) C</td>
+            <td>Fina Allen (NZ) C</td>
+            <td>Glenn Phillips (NZ) C</td>
+            <td>Henry Nicholls C</td>
+          </tr>
+          <tr>
+            <td>Shubman Gill (IND) V</td>
+            <td>Rohit Sharma (IND) V</td>
+            <td>Rohit Sharma (IND) V</td>
+            <td>Shubman Gill (IND) V</td>
+            <td>Virat Kohli (IND) V</td>
+            <td>Devon Conway (NZ) V</td>
+            <td>Michael Bracewell (NZ) V</td>
+            <td>Tom Latham V</td>
+          </tr>
+          <tr>
+            <td>Virat Kohli (IND)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Ishan Kishan (IND)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Michael Bracewell (NZ)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Mitchell Santner (NZ)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Glenn Phillips (NZ)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Hardik Pandya (IND)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Mohammed Siraj (IND)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Devon Conway (NZ)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Lockie Ferguson (NZ)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
+
