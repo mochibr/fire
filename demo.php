@@ -1,268 +1,899 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="display" readonly>
+    <div class="buttons">
+      <button onclick="appendToDisplay('7')">7</button>
+      <button onclick="appendToDisplay('8')">8</button>
+      <button onclick="appendToDisplay('9')">9</button>
+      <button onclick="appendToDisplay('+')">+</button>
+      <button onclick="appendToDisplay('4')">4</button>
+      <button onclick="appendToDisplay('5')">5</button>
+      <button onclick="appendToDisplay('6')">6</button>
+      <button onclick="appendToDisplay('-')">-</button>
+      <button onclick="appendToDisplay('1')">1</button>
+      <button onclick="appendToDisplay('2')">2</button>
+      <button onclick="appendToDisplay('3')">3</button>
+      <button onclick="appendToDisplay('*')">*</button>
+      <button onclick="appendToDisplay('0')">0</button>
+      <button onclick="appendToDisplay('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="appendToDisplay('/')">/</button>
+      <button onclick="clearDisplay()">C</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+<style>
+  .calculator {
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#display {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+}
+
+</style>
+<script>
+  function appendToDisplay(value) {
+  document.getElementById('display').value += value;
+}
+
+function calculate() {
+  var displayValue = document.getElementById('display').value;
+  var result = eval(displayValue);
+  document.getElementById('display').value = result;
+}
+
+function clearDisplay() {
+  document.getElementById('display').value = '';
+}
+
+</script> -->
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Neon Calculator</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="display" readonly>
+    <div class="buttons">
+      <button onclick="appendToDisplay('7')">7</button>
+      <button onclick="appendToDisplay('8')">8</button>
+      <button onclick="appendToDisplay('9')">9</button>
+      <button class="operator" onclick="appendToDisplay('+')">+</button>
+      <button onclick="appendToDisplay('4')">4</button>
+      <button onclick="appendToDisplay('5')">5</button>
+      <button onclick="appendToDisplay('6')">6</button>
+      <button class="operator" onclick="appendToDisplay('-')">-</button>
+      <button onclick="appendToDisplay('1')">1</button>
+      <button onclick="appendToDisplay('2')">2</button>
+      <button onclick="appendToDisplay('3')">3</button>
+      <button class="operator" onclick="appendToDisplay('*')">*</button>
+      <button onclick="appendToDisplay('0')">0</button>
+      <button onclick="appendToDisplay('.')">.</button>
+      <button class="equal" onclick="calculate()">=</button>
+      <button class="operator" onclick="appendToDisplay('/')">/</button>
+      <button class="clear" onclick="clearDisplay()">C</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+<style>
+  .calculator {
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#display {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 24px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-align: right;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  background-color: #222;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+button.operator {
+  background-color: #FF00FF;
+  color: #fff;
+}
+
+button.equal {
+  background-color: #00FF00;
+  color: #000;
+}
+
+button.clear {
+  background-color: #FF0000;
+  color: #fff;
+}
+
+</style> -->
+<div class="calculator">
+  <input type="text" id="result" disabled>
+  <div class="buttons">
+    <button onclick="clearResult()">C</button>
+    <button onclick="appendValue('backspace')">&larr;</button>
+    <button onclick="appendValue('%')">%</button>
+    <button onclick="appendValue('/')">/</button>
+    <button onclick="appendValue(7)">7</button>
+    <button onclick="appendValue(8)">8</button>
+    <button onclick="appendValue(9)">9</button>
+    <button onclick="appendValue('*')">*</button>
+    <button onclick="appendValue(4)">4</button>
+    <button onclick="appendValue(5)">5</button>
+    <button onclick="appendValue(6)">6</button>
+    <button onclick="appendValue('-')">-</button>
+    <button onclick="appendValue(1)">1</button>
+    <button onclick="appendValue(2)">2</button>
+    <button onclick="appendValue(3)">3</button>
+    <button onclick="appendValue('+')">+</button>
+    <button onclick="appendValue(0)">0</button>
+    <button onclick="appendValue('.')">.</button>
+    <button onclick="calculate()">=</button>
+  </div>
+</div>
+<style>
+  .calculator {
+  width: 240px;
+  margin: 0 auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#result {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 18px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+button {
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e0e0e0;
+}
+
+</style>
+<script>
+  function appendValue(value) {
+  const resultField = document.getElementById('result');
+  const currentValue = resultField.value;
+
+  if (value === 'backspace') {
+    resultField.value = currentValue.slice(0, -1);
+  } else {
+    resultField.value = currentValue + value;
+  }
+}
+
+function calculate() {
+  const resultField = document.getElementById('result');
+  const expression = resultField.value;
+
+  // Remove percentage sign and evaluate the expression
+  const evaluatedResult = eval(expression.replace('%', '/100'));
+
+  resultField.value = evaluatedResult;
+}
+
+function clearResult() {
+  document.getElementById('result').value = '';
+}
+
+</script>
+<!-- <div class="calculator">
+  <div class="display">
+    <input type="text" id="result" disabled>
+  </div>
+  <div class="buttons">
+    <div class="row">
+      <button onclick="clearResult()">C</button>
+      <button onclick="backspace()">&#9003;</button>
+      <button onclick="appendValue('/')">÷</button>
+      <button onclick="appendValue('7')">7</button>
+      <button onclick="appendValue('8')">8</button>
+      <button onclick="appendValue('9')">9</button>
+      <button onclick="appendValue('*')">x</button>
+      <button onclick="appendValue('4')">4</button>
+      <button onclick="appendValue('5')">5</button>
+      <button onclick="appendValue('6')">6</button>
+      <button onclick="appendValue('-')">-</button>
+      <button onclick="appendValue('1')">1</button>
+      <button onclick="appendValue('2')">2</button>
+      <button onclick="appendValue('3')">3</button>
+      <button onclick="appendValue('+')">+</button>
+      <button onclick="appendValue('0')">0</button>
+      <button onclick="appendValue('.')">.</button>
+      <button onclick="calculate()">=</button>
+    </div>
+  </div>
+</div>
+<style>
+  .calculator {
+  width: 320px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.display {
+  background-color: #fff;
+  padding: 10px;
+  text-align: right;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#result {
+  width: 100%;
+  border: none;
+  font-size: 28px;
+}
+
+.buttons {
+  background-color: #f5f5f5;
+}
+
+.row {
+  display: flex;
+}
+
+button {
+  flex: 1;
+  padding: 20px;
+  font-size: 18px;
+  border: none;
+  background-color: #e0e0e0;
+  color: #000;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #d2d2d2;
+}
+
+button:active {
+  background-color: #c0c0c0;
+}
+
+</style>
+<script>
+  function appendValue(value) {
+  document.getElementById('result').value += value;
+}
+
+function calculate() {
+  const result = eval(document.getElementById('result').value);
+  document.getElementById('result').value = result;
+}
+
+function clearResult() {
+  document.getElementById('result').value = '';
+}
+
+function backspace() {
+  const currentValue = document.getElementById('result').value;
+  document.getElementById('result').value = currentValue.slice(0, -1);
+}
+
+</script> -->
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>3D Calculator</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="calculator">
+    <div class="screen">
+      <input type="text" id="display" readonly>
+    </div>
+    <div class="keys">
+      <div class="row">
+        <button class="btn" onclick="appendToDisplay('7')">7</button>
+        <button class="btn" onclick="appendToDisplay('8')">8</button>
+        <button class="btn" onclick="appendToDisplay('9')">9</button>
+        <button class="btn operator" onclick="appendToDisplay('+')">+</button>
+      </div>
+      <div class="row">
+        <button class="btn" onclick="appendToDisplay('4')">4</button>
+        <button class="btn" onclick="appendToDisplay('5')">5</button>
+        <button class="btn" onclick="appendToDisplay('6')">6</button>
+        <button class="btn operator" onclick="appendToDisplay('-')">-</button>
+      </div>
+      <div class="row">
+        <button class="btn" onclick="appendToDisplay('1')">1</button>
+        <button class="btn" onclick="appendToDisplay('2')">2</button>
+        <button class="btn" onclick="appendToDisplay('3')">3</button>
+        <button class="btn operator" onclick="appendToDisplay('*')">*</button>
+      </div>
+      <div class="row">
+        <button class="btn"  onclick="appendToDisplay('0')">0</button>
+        <button class="btn"  onclick="appendToDisplay('.')">.</button>
+        <button class="btn operator" onclick="appendToDisplay('/')">/</button>
+        <button class="btn equal" onclick="calculate()">=</button>
+      </div>
+      <div class="row">
+        <button class="btn clear" onclick="clearDisplay()">C</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+<style>
+  .calculator {
+    width: 320px;
+    margin: 0 auto;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.screen {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+#display {
+  width: 100%;
+  border: none;
+  font-size: 24px;
+  padding: 5px;
+  outline: none;
+}
+
+.keys {
+  margin-top: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  flex: 1;
+  padding: 20px;
+  margin: 5px;
+  background-color: #eee;
+  border-radius: 5px;
+  font-size: 18px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.operator {
+  background-color: #f39c12;
+  color: #fff;
+}
+
+.equal {
+  background-color: #27ae60;
+  color: #fff;
+}
+
+.clear {
+  background-color: #f44336;
+  color: #fff;
+}
+
+</style>
+<script>
+  function appendToDisplay(value) {
+  document.getElementById('display').value += value;
+}
+
+function calculate() {
+  var displayValue = document.getElementById('display').value;
+  var result = eval(displayValue);
+  document.getElementById('display').value = result;
+}
+
+function clearDisplay() {
+  document.getElementById('display').value = '';
+}
+
+</script> -->
+<!-- 
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>To-Do List</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet"> -->
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;800&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-          margin: 0;
-          padding: 0;
-          font-family: 'Poppins', sans-serif;
-        }
-      
-        #app {
-          max-width: 600px;
-          margin: 20px auto;
-          padding: 20px;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-      
-        h1 {
-          text-align: center;
-          font-family: 'Poppins', sans-serif;
-        }
-        h1 span{
-          color: #3300ff;
-
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-bottom: 10px;
-        } 
-
-        #err_msg {
-            display: block;
-            font-size: 14px;
-            color: #f44336;
-            margin-bottom: 8px;
-        }
-
-        button#addButton {
-            /* background-color: #4caf50; */
-            background-color: #3300ff;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-      
-        ul {
-          list-style-type: none;
-          padding: 0;
-        }
-      
-        li {
-          display: flex;
-          align-items: center;
-          padding: 10px;
-          margin-bottom: 10px;
-          background-color: #f4f4f4;
-          border-radius: 5px;
-        }
-      
-        li input[type="checkbox"] {
-          margin-right: 10px;
-        }
-      
-        li .edit-input {
-        width: 100%;
-        padding: 10px;
-        margin-right: 10px;
-    }
-      
-        li .edit-button {
-            margin-left: auto;
-            /* background-color: #2196f3; */
-            background-color: #3300ff;
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 4px;
-            border: none;
-            cursor: pointer;
-        }
-      
-        li .delete-button {
-          margin-left: 10px;
-          background-color: #f44336;
-          color: #fff;
-          padding: 5px 10px;
-          border-radius: 4px;
-          border: none;
-          cursor: pointer;
-        }
-        .completed {
-            background-color: #3300ff;
-        }
-        .completed span{
-            text-decoration: line-through;
-            color: #fff;
-        }
-        .completed .edit-button,
-        .completed .delete-button{
-            display: none;
-        }
-      </style>
-      
-  </head>
-  <body>
-    <div id="app">
-      <h1>To-Do <span>List</span></h1>
-      <input type="text" id="taskInput" placeholder="Enter a task..." />
-      <span id="err_msg"></span>
-      <button id="addButton">Add Task</button> 
-     <ul id="taskList"></ul>
+<head>
+  <title>Calculator</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="calculator">
+    <div class="display">
+      <input type="text" id="result" readonly>
     </div>
-
-    <script src="script.js"></script>
-  </body>
+    <div class="keypad">
+      <div class="row">
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button class="operator" onclick="appendToDisplay('+')">+</button>
+      </div>
+      <div class="row">
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button class="operator" onclick="appendToDisplay('-')">-</button>
+      </div>
+      <div class="row">
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button class="operator" onclick="appendToDisplay('*')">*</button>
+      </div>
+      <div class="row">
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="appendToDisplay('.')">.</button>
+        <button class="operator" onclick="calculate()">=</button>
+        <button class="operator" onclick="appendToDisplay('/')">/</button>
+      </div>
+      <div class="row">
+        <button class="clear" onclick="clearDisplay()">C</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
 </html>
-<script>
-  // Retrieve tasks from local storage or initialize empty array
-  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-  // Function to render tasks in the UI
-  function renderTasks() {
-    const taskList = document.getElementById("taskList");
-    taskList.innerHTML = "";
+<style>
+  .calculator {
+  width: 320px;
+  margin: 0 auto;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
 
-    tasks.forEach((task, index) => {
+.display {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: right;
+  margin-bottom: 20px;
+}
 
-      const listItem = document.createElement("li");
-      const checkbox = document.createElement("input");
-      checkbox.type = "checkbox";
-      checkbox.checked = task.completed;
+#result {
+  width: 100%;
+  border: none;
+  font-size: 24px;
+  padding: 5px;
+}
 
-      checkbox.addEventListener("change", () => {
-        toggleTaskCompletion(index);
-      });
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
 
-      if (task.completed) {
-        listItem.classList.add("completed");
-       }
+.row {
+  display: flex;
+}
 
-      const taskText = document.createElement("span");
-      taskText.textContent = task.text;
+button {
+  width: 100%;
+  padding: 15px;
+  font-size: 20px;
+  text-align: center;
+  border: none;
+  background-color: #e0e0e0;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-      const editInput = document.createElement("input");
-      editInput.type = "text";
-      editInput.value = task.text;
-      editInput.classList.add("edit-input");
-      editInput.style.display = "none";
+button.operator {
+  background-color: #ff9800;
+  color: #fff;
+}
 
-      const errTextEdit = document.createElement("b");
-      errTextEdit.classList.add("err-msg-edit");
-      errTextEdit.textContent = task.text;
+button.clear {
+  background-color: #f44336;
+  color: #fff;
+}
 
-      const editButton = document.createElement("button");
-      editButton.textContent = "Edit";
-      editButton.classList.add("edit-button");
-      editButton.addEventListener("click", () => {
-        toggleEditInput(index);
-      });
+button:hover {
+  background-color: #ccc;
+}
 
-      const deleteButton = document.createElement("button");
-      deleteButton.textContent = "Delete";
-      deleteButton.classList.add("delete-button");
-      deleteButton.addEventListener("click", () => {
-        deleteTask(index);
-      });
+</style> -->
 
-      listItem.appendChild(checkbox);
-      listItem.appendChild(taskText);
-      listItem.appendChild(editInput);
-      listItem.appendChild(editButton);
-      listItem.appendChild(deleteButton);
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="display" readonly>
+    <div class="buttons">
+      <div class="row">
+        <button class="gray" onclick="appendToDisplay('7')">7</button>
+        <button class="gray" onclick="appendToDisplay('8')">8</button>
+        <button class="gray" onclick="appendToDisplay('9')">9</button>
+        <button class="orange" onclick="appendToDisplay('+')">+</button>
+      </div>
+      <div class="row">
+        <button class="gray" onclick="appendToDisplay('4')">4</button>
+        <button class="gray" onclick="appendToDisplay('5')">5</button>
+        <button class="gray" onclick="appendToDisplay('6')">6</button>
+        <button class="orange" onclick="appendToDisplay('-')">-</button>
+      </div>
+      <div class="row">
+        <button class="gray" onclick="appendToDisplay('1')">1</button>
+        <button class="gray" onclick="appendToDisplay('2')">2</button>
+        <button class="gray" onclick="appendToDisplay('3')">3</button>
+        <button class="orange" onclick="appendToDisplay('*')">*</button>
+      </div>
+      <div class="row">
+        <button class="gray zero" onclick="appendToDisplay('0')">0</button>
+        <button class="gray" onclick="appendToDisplay('.')">.</button>
+        <button class="orange" onclick="calculate()">=</button>
+        <button class="orange" onclick="appendToDisplay('/')">/</button>
+      </div>
+      <div class="row">
+        <button class="clear" onclick="clearDisplay()">C</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+<style>
+  .calculator {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
 
-      taskList.appendChild(listItem);
-    });
-  }
+#display {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 24px;
+  border: none;
+  background-color: #fff;
+  text-align: right;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
 
-  // Function to add a new task
-  function addTask() {
-    const taskInput = document.getElementById("taskInput");
-    const taskText = taskInput.value.trim();
-    const errMsg = document.getElementById("err_msg");
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+}
 
-    if (taskText !== "") {
-      const newTask = {
-        text: taskText,
-        completed: false,
-      };
+.row {
+  display: flex;
+}
 
-      tasks.push(newTask);
-      saveTasksToLocalStorage();
-      renderTasks();
+button {
+  flex: 1;
+  padding: 20px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
 
-      taskInput.value = "";
-      errMsg.innerHTML = "";
-    }else{
+.gray {
+  background-color: #f1f1f1;
+  color: #333;
+}
 
-        errMsg.innerHTML = "Please enter a task before adding.";
-    }
-  }
+.orange {
+  background-color: #ff9800;
+  color: #fff;
+}
 
-  // Function to toggle task completion
-  function toggleTaskCompletion(index) {
-    tasks[index].completed = !tasks[index].completed;
-    saveTasksToLocalStorage();
-    renderTasks();
-  }
+.clear {
+  background-color: #f44336;
+  color: #fff;
+}
 
-  // Function to toggle edit input visibility
-  function toggleEditInput(index) {
-    const listItem = document.querySelectorAll("li")[index];
+.zero {
+  flex-basis: calc(50% - 5px);
+}
 
-    const taskText = listItem.querySelector("span");
-    const editInput = listItem.querySelector(".edit-input");
-    const editButton = listItem.querySelector(".edit-button");
-    console.log(editInput);
-    if (editInput.style.display === "none") {
-      taskText.style.display = "none";
-      editInput.style.display = "block";
-      editInput.focus();
-      editButton.textContent = "Save";
-    } else {
-      const newText = editInput.value.trim();
-      if (newText !== "") {
-        tasks[index].text = newText;
-        saveTasksToLocalStorage();
-        renderTasks();
-      }else{
-        alert("Please enter a task before saving.");
-      }
-    }
-  }
+button:hover {
+  opacity: 0.8;
+}
 
-  // Function to delete a task
-  function deleteTask(index) {
-    tasks.splice(index, 1);
-    saveTasksToLocalStorage();
-    renderTasks();
-  }
+</style> -->
 
-  // Function to save tasks to local storage
-  function saveTasksToLocalStorage() {
-    console.log(tasks);
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }
+<!-- <div class="calculator">
+  <input type="text" class="display" disabled>
+  <div class="keypad">
+    <button class="btn">7</button>
+    <button class="btn">8</button>
+    <button class="btn">9</button>
+    <button class="btn">+</button>
+    <button class="btn">4</button>
+    <button class="btn">5</button>
+    <button class="btn">6</button>
+    <button class="btn">-</button>
+    <button class="btn">1</button>
+    <button class="btn">2</button>
+    <button class="btn">3</button>
+    <button class="btn">*</button>
+    <button class="btn">0</button>
+    <button class="btn">.</button>
+    <button class="btn">=</button>
+    <button class="btn">/</button>
+    <button class="btn clear">C</button>
+  </div>
+</div>
 
-  // Add event listeners
-  document.getElementById("addButton").addEventListener("click", addTask); 
-  document.getElementById("taskInput").addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      addTask();
-    }
-  });
+<style>
+  .calculator {
+  width: 200px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
 
-  // Initial rendering of tasks
-  renderTasks();
-</script>
+.display {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  text-align: right;
+  padding: 5px;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+}
+
+.btn {
+  width: 100%;
+  height: 40px;
+  font-size: 18px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.clear {
+  background-color: #ff0000;
+  color: #fff;
+}
+
+</style> -->
+
+<!-- <div class="calculator">
+  <input type="text" id="result" readonly>
+  <div class="buttons">
+    <button class="operator">+</button>
+    <button class="operator">-</button>
+    <button class="operator">*</button>
+    <button class="operator">/</button>
+    <button>7</button>
+    <button>8</button>
+    <button>9</button>
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>0</button>
+    <button>.</button>
+    <button id="clear">C</button>
+    <button id="equal">=</button>
+  </div>
+</div>
+<style>
+  .calculator {
+  width: 240px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+#result {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 4px;
+}
+
+.operator {
+  background-color: #ff9800;
+  color: #fff;
+}
+
+</style> -->
+
+<!-- <div class="calculator">
+  <input type="text" id="result" readonly>
+  
+  <div class="row">
+    <button class="operator">C</button>
+    <button class="operator">/</button>
+    <button>7</button>
+    <button>8</button>
+    <button>9</button>
+    <button class="operator">*</button>
+  </div>
+  
+  <div class="row">
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+    <button class="operator">-</button>
+  </div>
+  
+  <div class="row">
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button class="operator">+</button>
+  </div>
+  
+  <div class="row">
+    <button class="wide">0</button>
+    <button>.</button>
+    <button id="equal" class="operator">=</button>
+  </div>
+</div>
+<style>
+  .calculator {
+  width: 240px;
+  margin: 0 auto;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.row {
+  display: flex;
+}
+
+button {
+  flex: 1;
+  padding: 10px;
+  font-size: 18px;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 4px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+button.wide {
+  flex: 2;
+}
+
+button.operator {
+  background-color: #ff9800;
+  color: white;
+}
+
+button#equal {
+  background-color: #4caf50;
+}
+
+button:hover {
+  background-color: #d4d4d4;
+}
+
+button:active {
+  background-color: #9e9e9e;
+}
+
+</style> -->
