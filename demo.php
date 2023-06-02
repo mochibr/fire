@@ -1,899 +1,491 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <title>Calculator</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-  <div class="calculator">
-    <input type="text" id="display" readonly>
-    <div class="buttons">
-      <button onclick="appendToDisplay('7')">7</button>
-      <button onclick="appendToDisplay('8')">8</button>
-      <button onclick="appendToDisplay('9')">9</button>
-      <button onclick="appendToDisplay('+')">+</button>
-      <button onclick="appendToDisplay('4')">4</button>
-      <button onclick="appendToDisplay('5')">5</button>
-      <button onclick="appendToDisplay('6')">6</button>
-      <button onclick="appendToDisplay('-')">-</button>
-      <button onclick="appendToDisplay('1')">1</button>
-      <button onclick="appendToDisplay('2')">2</button>
-      <button onclick="appendToDisplay('3')">3</button>
-      <button onclick="appendToDisplay('*')">*</button>
-      <button onclick="appendToDisplay('0')">0</button>
-      <button onclick="appendToDisplay('.')">.</button>
-      <button onclick="calculate()">=</button>
-      <button onclick="appendToDisplay('/')">/</button>
-      <button onclick="clearDisplay()">C</button>
-    </div>
-  </div>
-  <script src="script.js"></script>
-</body>
-</html>
-<style>
-  .calculator {
-  width: 200px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-#display {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 5px;
-}
-
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 5px;
-}
-
-button {
-  width: 100%;
-  padding: 10px;
-  font-size: 18px;
-}
-
-</style>
-<script>
-  function appendToDisplay(value) {
-  document.getElementById('display').value += value;
-}
-
-function calculate() {
-  var displayValue = document.getElementById('display').value;
-  var result = eval(displayValue);
-  document.getElementById('display').value = result;
-}
-
-function clearDisplay() {
-  document.getElementById('display').value = '';
-}
-
-</script> -->
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <title>Neon Calculator</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-  <div class="calculator">
-    <input type="text" id="display" readonly>
-    <div class="buttons">
-      <button onclick="appendToDisplay('7')">7</button>
-      <button onclick="appendToDisplay('8')">8</button>
-      <button onclick="appendToDisplay('9')">9</button>
-      <button class="operator" onclick="appendToDisplay('+')">+</button>
-      <button onclick="appendToDisplay('4')">4</button>
-      <button onclick="appendToDisplay('5')">5</button>
-      <button onclick="appendToDisplay('6')">6</button>
-      <button class="operator" onclick="appendToDisplay('-')">-</button>
-      <button onclick="appendToDisplay('1')">1</button>
-      <button onclick="appendToDisplay('2')">2</button>
-      <button onclick="appendToDisplay('3')">3</button>
-      <button class="operator" onclick="appendToDisplay('*')">*</button>
-      <button onclick="appendToDisplay('0')">0</button>
-      <button onclick="appendToDisplay('.')">.</button>
-      <button class="equal" onclick="calculate()">=</button>
-      <button class="operator" onclick="appendToDisplay('/')">/</button>
-      <button class="clear" onclick="clearDisplay()">C</button>
-    </div>
-  </div>
-  <script src="script.js"></script>
-</body>
-</html>
-<style>
-  .calculator {
-  width: 200px;
-  margin: 0 auto;
-  text-align: center;
-  font-family: 'Arial', sans-serif;
-  background-color: #222;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-#display {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-  font-size: 24px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  text-align: right;
-}
-
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 5px;
-}
-
-button {
-  width: 100%;
-  padding: 10px;
-  font-size: 18px;
-  border: none;
-  background-color: #222;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #555;
-}
-
-button.operator {
-  background-color: #FF00FF;
-  color: #fff;
-}
-
-button.equal {
-  background-color: #00FF00;
-  color: #000;
-}
-
-button.clear {
-  background-color: #FF0000;
-  color: #fff;
-}
-
-</style> -->
-<div class="calculator">
-  <input type="text" id="result" disabled>
-  <div class="buttons">
-    <button onclick="clearResult()">C</button>
-    <button onclick="appendValue('backspace')">&larr;</button>
-    <button onclick="appendValue('%')">%</button>
-    <button onclick="appendValue('/')">/</button>
-    <button onclick="appendValue(7)">7</button>
-    <button onclick="appendValue(8)">8</button>
-    <button onclick="appendValue(9)">9</button>
-    <button onclick="appendValue('*')">*</button>
-    <button onclick="appendValue(4)">4</button>
-    <button onclick="appendValue(5)">5</button>
-    <button onclick="appendValue(6)">6</button>
-    <button onclick="appendValue('-')">-</button>
-    <button onclick="appendValue(1)">1</button>
-    <button onclick="appendValue(2)">2</button>
-    <button onclick="appendValue(3)">3</button>
-    <button onclick="appendValue('+')">+</button>
-    <button onclick="appendValue(0)">0</button>
-    <button onclick="appendValue('.')">.</button>
-    <button onclick="calculate()">=</button>
-  </div>
-</div>
-<style>
-  .calculator {
-  width: 240px;
-  margin: 0 auto;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-#result {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 5px;
-  font-size: 18px;
-}
-
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
-}
-
-button {
-  padding: 10px;
-  font-size: 18px;
-  border: none;
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #e0e0e0;
-}
-
-</style>
-<script>
-  function appendValue(value) {
-  const resultField = document.getElementById('result');
-  const currentValue = resultField.value;
-
-  if (value === 'backspace') {
-    resultField.value = currentValue.slice(0, -1);
-  } else {
-    resultField.value = currentValue + value;
-  }
-}
-
-function calculate() {
-  const resultField = document.getElementById('result');
-  const expression = resultField.value;
-
-  // Remove percentage sign and evaluate the expression
-  const evaluatedResult = eval(expression.replace('%', '/100'));
-
-  resultField.value = evaluatedResult;
-}
-
-function clearResult() {
-  document.getElementById('result').value = '';
-}
-
-</script>
-<!-- <div class="calculator">
-  <div class="display">
-    <input type="text" id="result" disabled>
-  </div>
-  <div class="buttons">
-    <div class="row">
-      <button onclick="clearResult()">C</button>
-      <button onclick="backspace()">&#9003;</button>
-      <button onclick="appendValue('/')">÷</button>
-      <button onclick="appendValue('7')">7</button>
-      <button onclick="appendValue('8')">8</button>
-      <button onclick="appendValue('9')">9</button>
-      <button onclick="appendValue('*')">x</button>
-      <button onclick="appendValue('4')">4</button>
-      <button onclick="appendValue('5')">5</button>
-      <button onclick="appendValue('6')">6</button>
-      <button onclick="appendValue('-')">-</button>
-      <button onclick="appendValue('1')">1</button>
-      <button onclick="appendValue('2')">2</button>
-      <button onclick="appendValue('3')">3</button>
-      <button onclick="appendValue('+')">+</button>
-      <button onclick="appendValue('0')">0</button>
-      <button onclick="appendValue('.')">.</button>
-      <button onclick="calculate()">=</button>
-    </div>
-  </div>
-</div>
-<style>
-  .calculator {
-  width: 320px;
-  margin: 0 auto;
-  padding: 10px;
-  background-color: #f5f5f5;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.display {
-  background-color: #fff;
-  padding: 10px;
-  text-align: right;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-#result {
-  width: 100%;
-  border: none;
-  font-size: 28px;
-}
-
-.buttons {
-  background-color: #f5f5f5;
-}
-
-.row {
-  display: flex;
-}
-
-button {
-  flex: 1;
-  padding: 20px;
-  font-size: 18px;
-  border: none;
-  background-color: #e0e0e0;
-  color: #000;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #d2d2d2;
-}
-
-button:active {
-  background-color: #c0c0c0;
-}
-
-</style>
-<script>
-  function appendValue(value) {
-  document.getElementById('result').value += value;
-}
-
-function calculate() {
-  const result = eval(document.getElementById('result').value);
-  document.getElementById('result').value = result;
-}
-
-function clearResult() {
-  document.getElementById('result').value = '';
-}
-
-function backspace() {
-  const currentValue = document.getElementById('result').value;
-  document.getElementById('result').value = currentValue.slice(0, -1);
-}
-
-</script> -->
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <title>3D Calculator</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-  <div class="calculator">
-    <div class="screen">
-      <input type="text" id="display" readonly>
-    </div>
-    <div class="keys">
-      <div class="row">
-        <button class="btn" onclick="appendToDisplay('7')">7</button>
-        <button class="btn" onclick="appendToDisplay('8')">8</button>
-        <button class="btn" onclick="appendToDisplay('9')">9</button>
-        <button class="btn operator" onclick="appendToDisplay('+')">+</button>
-      </div>
-      <div class="row">
-        <button class="btn" onclick="appendToDisplay('4')">4</button>
-        <button class="btn" onclick="appendToDisplay('5')">5</button>
-        <button class="btn" onclick="appendToDisplay('6')">6</button>
-        <button class="btn operator" onclick="appendToDisplay('-')">-</button>
-      </div>
-      <div class="row">
-        <button class="btn" onclick="appendToDisplay('1')">1</button>
-        <button class="btn" onclick="appendToDisplay('2')">2</button>
-        <button class="btn" onclick="appendToDisplay('3')">3</button>
-        <button class="btn operator" onclick="appendToDisplay('*')">*</button>
-      </div>
-      <div class="row">
-        <button class="btn"  onclick="appendToDisplay('0')">0</button>
-        <button class="btn"  onclick="appendToDisplay('.')">.</button>
-        <button class="btn operator" onclick="appendToDisplay('/')">/</button>
-        <button class="btn equal" onclick="calculate()">=</button>
-      </div>
-      <div class="row">
-        <button class="btn clear" onclick="clearDisplay()">C</button>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
-<style>
-  .calculator {
-    width: 320px;
-    margin: 0 auto;
-    background-color: #f1f1f1;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-.screen {
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 5px;
-  text-align: right;
-  margin-bottom: 20px;
-}
-
-#display {
-  width: 100%;
-  border: none;
-  font-size: 24px;
-  padding: 5px;
-  outline: none;
-}
-
-.keys {
-  margin-top: 10px;
-}
-
-.row {
-  display: flex;
-  justify-content: space-between;
-}
-
-.btn {
-  flex: 1;
-  padding: 20px;
-  margin: 5px;
-  background-color: #eee;
-  border-radius: 5px;
-  font-size: 18px;
-  border: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.btn:hover {
-  background-color: #ddd;
-}
-
-.operator {
-  background-color: #f39c12;
-  color: #fff;
-}
-
-.equal {
-  background-color: #27ae60;
-  color: #fff;
-}
-
-.clear {
-  background-color: #f44336;
-  color: #fff;
-}
-
-</style>
-<script>
-  function appendToDisplay(value) {
-  document.getElementById('display').value += value;
-}
-
-function calculate() {
-  var displayValue = document.getElementById('display').value;
-  var result = eval(displayValue);
-  document.getElementById('display').value = result;
-}
-
-function clearDisplay() {
-  document.getElementById('display').value = '';
-}
-
-</script> -->
-<!-- 
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Calculator</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-  <div class="calculator">
-    <div class="display">
-      <input type="text" id="result" readonly>
-    </div>
-    <div class="keypad">
-      <div class="row">
-        <button onclick="appendToDisplay('7')">7</button>
-        <button onclick="appendToDisplay('8')">8</button>
-        <button onclick="appendToDisplay('9')">9</button>
-        <button class="operator" onclick="appendToDisplay('+')">+</button>
-      </div>
-      <div class="row">
-        <button onclick="appendToDisplay('4')">4</button>
-        <button onclick="appendToDisplay('5')">5</button>
-        <button onclick="appendToDisplay('6')">6</button>
-        <button class="operator" onclick="appendToDisplay('-')">-</button>
-      </div>
-      <div class="row">
-        <button onclick="appendToDisplay('1')">1</button>
-        <button onclick="appendToDisplay('2')">2</button>
-        <button onclick="appendToDisplay('3')">3</button>
-        <button class="operator" onclick="appendToDisplay('*')">*</button>
-      </div>
-      <div class="row">
-        <button onclick="appendToDisplay('0')">0</button>
-        <button onclick="appendToDisplay('.')">.</button>
-        <button class="operator" onclick="calculate()">=</button>
-        <button class="operator" onclick="appendToDisplay('/')">/</button>
-      </div>
-      <div class="row">
-        <button class="clear" onclick="clearDisplay()">C</button>
-      </div>
-    </div>
-  </div>
-  <script src="script.js"></script>
-</body>
-</html>
-<style>
-  .calculator {
-  width: 320px;
-  margin: 0 auto;
-  background-color: #f1f1f1;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  <style>
+    body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
 }
 
-.display {
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 5px;
-  text-align: right;
+#snake {
+  background-color: #000f23;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  max-width: 600px;
+}
+
+#play {
+  text-align: center;
   margin-bottom: 20px;
 }
 
-#result {
-  width: 100%;
-  border: none;
+h1 {
+  font-size: 48px;
+  color: #fff;
+  margin-top: 0;
+}
+
+#playButton {
   font-size: 24px;
-  padding: 5px;
-}
-
-.keypad {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
-}
-
-.row {
-  display: flex;
-}
-
-button {
-  width: 100%;
-  padding: 15px;
-  font-size: 20px;
-  text-align: center;
+  padding: 10px 20px;
   border: none;
-  background-color: #e0e0e0;
-  color: #333;
   border-radius: 5px;
+  background-color: #4CAF50;
+  color: #fff;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-button.operator {
-  background-color: #ff9800;
+#playButton:hover {
+  background-color: #45a049;
+}
+
+#playing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#playing_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #000f23;
+}
+
+#scoreElement,
+#highScoreElement {
+  font-size: 24px;
   color: #fff;
+  margin: 0;
 }
 
-button.clear {
-  background-color: #f44336;
+#playing_body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000f23;
+  padding: 20px;
+}
+
+#gameCanvas {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#playing_footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#pauseButton,
+#playAgainButton {
+  font-size: 18px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
   color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
 }
 
-button:hover {
-  background-color: #ccc;
+#pauseButton:hover,
+#playAgainButton:hover {
+  background-color: #45a049;
 }
 
-</style> -->
+  </style>
+  <!-- <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+      font-family: Arial, sans-serif;
+    }
 
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <title>Calculator</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+    #snake {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    #play {
+      text-align: center;
+      margin-bottom: 20px;
+      width: 400px;
+    }
+
+    #play p {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0;
+      color: #333;
+    }
+
+    #playButton {
+      font-size: 18px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #playButton:hover {
+      background-color: #45a049;
+    }
+
+    #playing {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #gameCanvas {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #playAgainButton,
+    #pauseButton {
+      font-size: 18px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #playAgainButton:hover,
+    #playAgainButton:hover {
+      background-color: #45a049;
+    }
+  </style> -->
 </head>
 <body>
-  <div class="calculator">
-    <input type="text" id="display" readonly>
-    <div class="buttons">
-      <div class="row">
-        <button class="gray" onclick="appendToDisplay('7')">7</button>
-        <button class="gray" onclick="appendToDisplay('8')">8</button>
-        <button class="gray" onclick="appendToDisplay('9')">9</button>
-        <button class="orange" onclick="appendToDisplay('+')">+</button>
+  <div id="snake">
+    <div id="play">
+      <p>Snake Game</p>
+      <button id="playButton">Play</button>
+    </div>
+    <div id="playing" style="display: none;">
+      <div id="playing_head">
+        <div id="scoreElement"></div>
+        <div id="highScoreElement"></div>
       </div>
-      <div class="row">
-        <button class="gray" onclick="appendToDisplay('4')">4</button>
-        <button class="gray" onclick="appendToDisplay('5')">5</button>
-        <button class="gray" onclick="appendToDisplay('6')">6</button>
-        <button class="orange" onclick="appendToDisplay('-')">-</button>
+      <div id="playing_body">
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
       </div>
-      <div class="row">
-        <button class="gray" onclick="appendToDisplay('1')">1</button>
-        <button class="gray" onclick="appendToDisplay('2')">2</button>
-        <button class="gray" onclick="appendToDisplay('3')">3</button>
-        <button class="orange" onclick="appendToDisplay('*')">*</button>
-      </div>
-      <div class="row">
-        <button class="gray zero" onclick="appendToDisplay('0')">0</button>
-        <button class="gray" onclick="appendToDisplay('.')">.</button>
-        <button class="orange" onclick="calculate()">=</button>
-        <button class="orange" onclick="appendToDisplay('/')">/</button>
-      </div>
-      <div class="row">
-        <button class="clear" onclick="clearDisplay()">C</button>
+      <div id="playing_footer">
+        <button id="pauseButton">Pause</button>
+        <button id="playAgainButton" style="display: none">Play Again</button>
       </div>
     </div>
   </div>
-  <script src="script.js"></script>
 </body>
 </html>
-<style>
-  .calculator {
-  width: 300px;
-  margin: 0 auto;
-  text-align: center;
-  background-color: #f2f2f2;
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
 
-#display {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-  font-size: 24px;
-  border: none;
-  background-color: #fff;
-  text-align: right;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
 
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 5px;
-}
 
-.row {
-  display: flex;
-}
+    <script>
+      // Game constants
+      const canvas = document.getElementById("gameCanvas");
+      const ctx = canvas.getContext("2d");
+      const boxSize = 20;
+      const canvasSize = canvas.width / boxSize;
+      let score = 0;
+      let highScore = 0;
+      let gameLoop;
 
-button {
-  flex: 1;
-  padding: 20px;
-  font-size: 20px;
-  border: none;
-  cursor: pointer;
-}
+      // Snake initial position and direction
+      let snake = [{ x: 10, y: 10 }];
+      let direction = "right";
 
-.gray {
-  background-color: #f1f1f1;
-  color: #333;
-}
+      // Food initial position
+      let food = {
+        x: Math.floor(Math.random() * canvasSize),
+        y: Math.floor(Math.random() * canvasSize),
+      };
 
-.orange {
-  background-color: #ff9800;
-  color: #fff;
-}
+      // Main game loop
+      function game() {
+        gameLoop = setInterval(() => {
+          clearCanvas();
+          drawFood();
+          moveSnake();
+          drawSnake();
+          updateHighScore();
 
-.clear {
-  background-color: #f44336;
-  color: #fff;
-}
+          if (isCollision()) {
+            gameOver();
+            clearInterval(gameLoop);
+          }
+        }, 100);
+      }
 
-.zero {
-  flex-basis: calc(50% - 5px);
-}
+      // Function to clear the canvas
+      function clearCanvas() {
+        ctx.fillStyle = "#000f23";
+        // ctx.fillStyle = "black";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
 
-button:hover {
-  opacity: 0.8;
-}
+      function drawSnake() {
+        snake.forEach((segment, index) => {
+          if (index === 0) {
+            // Draw head with rounded corners
+            ctx.fillStyle = "lime";
+            const x = segment.x * boxSize;
+            const y = segment.y * boxSize;
+            const radius = boxSize / 2;
+            ctx.beginPath();
 
-</style> -->
+            if (direction === "left") {
+              ctx.moveTo(x + radius, y);
+              ctx.arcTo(x, y, x, y + radius, radius);
+              ctx.arcTo(x, y + boxSize, x + radius, y + boxSize, radius);
+              ctx.lineTo(x + boxSize, y + boxSize);
+              ctx.lineTo(x + boxSize, y);
+            } else if (direction === "right") {
+              ctx.moveTo(x + boxSize - radius, y);
+              ctx.arcTo(x + boxSize, y, x + boxSize, y + radius, radius);
+              ctx.arcTo(
+                x + boxSize,
+                y + boxSize,
+                x + boxSize - radius,
+                y + boxSize,
+                radius
+              );
+              ctx.lineTo(x, y + boxSize);
+              ctx.lineTo(x, y);
+            } else if (direction === "up") {
+              ctx.moveTo(x, y + radius);
+              ctx.arcTo(x, y, x + radius, y, radius);
+              ctx.arcTo(x + boxSize, y, x + boxSize, y + radius, radius);
+              ctx.lineTo(x + boxSize, y + boxSize);
+              ctx.lineTo(x, y + boxSize);
+            } else if (direction === "down") {
+              ctx.moveTo(x, y + boxSize - radius);
+              ctx.arcTo(x, y + boxSize, x + radius, y + boxSize, radius);
+              ctx.arcTo(
+                x + boxSize,
+                y + boxSize,
+                x + boxSize,
+                y + boxSize - radius,
+                radius
+              );
+              ctx.lineTo(x + boxSize, y);
+              ctx.lineTo(x, y);
+            }
 
-<!-- <div class="calculator">
-  <input type="text" class="display" disabled>
-  <div class="keypad">
-    <button class="btn">7</button>
-    <button class="btn">8</button>
-    <button class="btn">9</button>
-    <button class="btn">+</button>
-    <button class="btn">4</button>
-    <button class="btn">5</button>
-    <button class="btn">6</button>
-    <button class="btn">-</button>
-    <button class="btn">1</button>
-    <button class="btn">2</button>
-    <button class="btn">3</button>
-    <button class="btn">*</button>
-    <button class="btn">0</button>
-    <button class="btn">.</button>
-    <button class="btn">=</button>
-    <button class="btn">/</button>
-    <button class="btn clear">C</button>
-  </div>
-</div>
+            ctx.closePath();
+            ctx.fill();
+          } else {
+            // Draw body segments
+            ctx.fillStyle = "lime";
+            ctx.fillRect(
+              segment.x * boxSize,
+              segment.y * boxSize,
+              boxSize,
+              boxSize
+            );
+          }
+        });
+      }
 
-<style>
-  .calculator {
-  width: 200px;
-  border: 1px solid #ccc;
-  padding: 10px;
-}
+      function moveSnake() {
+        const head = { x: snake[0].x, y: snake[0].y };
 
-.display {
-  width: 100%;
-  height: 40px;
-  margin-bottom: 10px;
-  font-size: 20px;
-  text-align: right;
-  padding: 5px;
-}
+        if (direction === "right") {
+          head.x++;
+        } else if (direction === "left") {
+          head.x--;
+        } else if (direction === "up") {
+          head.y--;
+        } else if (direction === "down") {
+          head.y++;
+        }
 
-.keypad {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 5px;
-}
+        // Wrap snake around the canvas edges
+        if (head.x >= canvasSize) head.x = 0;
+        if (head.x < 0) head.x = canvasSize - 1;
+        if (head.y >= canvasSize) head.y = 0;
+        if (head.y < 0) head.y = canvasSize - 1;
 
-.btn {
-  width: 100%;
-  height: 40px;
-  font-size: 18px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  cursor: pointer;
-}
+        snake.unshift(head);
 
-.clear {
-  background-color: #ff0000;
-  color: #fff;
-}
+        if (head.x === food.x && head.y === food.y) {
+          score++;
+          updateScore();
+          generateFood();
+        } else {
+          snake.pop();
+        }
+      }
 
-</style> -->
+      // Function to draw the food
+      function drawFood() {
+        ctx.fillStyle = "red";
+        const x = food.x * boxSize + boxSize / 2;
+        const y = food.y * boxSize + boxSize / 2;
+        const radius = boxSize / 2;
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, 2 * Math.PI);
+        ctx.closePath();
+        ctx.fill();
+      }
 
-<!-- <div class="calculator">
-  <input type="text" id="result" readonly>
-  <div class="buttons">
-    <button class="operator">+</button>
-    <button class="operator">-</button>
-    <button class="operator">*</button>
-    <button class="operator">/</button>
-    <button>7</button>
-    <button>8</button>
-    <button>9</button>
-    <button>4</button>
-    <button>5</button>
-    <button>6</button>
-    <button>1</button>
-    <button>2</button>
-    <button>3</button>
-    <button>0</button>
-    <button>.</button>
-    <button id="clear">C</button>
-    <button id="equal">=</button>
-  </div>
-</div>
-<style>
-  .calculator {
-  width: 240px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
+      // Function to generate new food
+      function generateFood() {
+        food = {
+          x: Math.floor(Math.random() * canvasSize),
+          y: Math.floor(Math.random() * canvasSize),
+        };
 
-#result {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-  font-size: 20px;
-}
+        // Make sure food doesn't overlap with snake
+        if (
+          snake.find((segment) => segment.x === food.x && segment.y === food.y)
+        ) {
+          generateFood();
+        }
+      }
 
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
-}
+      // Function to check for collisions
+      function isCollision() {
+        const head = snake[0];
 
-button {
-  width: 100%;
-  padding: 10px;
-  font-size: 18px;
-  border-radius: 4px;
-}
+        // Check collision with walls
+        if (
+          head.x < 0 ||
+          head.x >= canvasSize ||
+          head.y < 0 ||
+          head.y >= canvasSize
+        ) {
+          return true;
+        }
 
-.operator {
-  background-color: #ff9800;
-  color: #fff;
-}
+        // Check collision with self
+        for (let i = 1; i < snake.length; i++) {
+          if (head.x === snake[i].x && head.y === snake[i].y) {
+            return true;
+          }
+        }
 
-</style> -->
+        return false;
+      }
 
-<!-- <div class="calculator">
-  <input type="text" id="result" readonly>
-  
-  <div class="row">
-    <button class="operator">C</button>
-    <button class="operator">/</button>
-    <button>7</button>
-    <button>8</button>
-    <button>9</button>
-    <button class="operator">*</button>
-  </div>
-  
-  <div class="row">
-    <button>4</button>
-    <button>5</button>
-    <button>6</button>
-    <button class="operator">-</button>
-  </div>
-  
-  <div class="row">
-    <button>1</button>
-    <button>2</button>
-    <button>3</button>
-    <button class="operator">+</button>
-  </div>
-  
-  <div class="row">
-    <button class="wide">0</button>
-    <button>.</button>
-    <button id="equal" class="operator">=</button>
-  </div>
-</div>
-<style>
-  .calculator {
-  width: 240px;
-  margin: 0 auto;
-  background-color: #f4f4f4;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
+      // Function to update the score
+      function updateScore() {
+        scoreElement.innerHTML = "Score: " + score;
+      }
 
-input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  font-size: 20px;
-}
+    // Function to update the high score
+    function updateHighScore() {
+      const highScore = localStorage.getItem("highScore");
+      if (highScore === null || score > highScore) {
+        localStorage.setItem("highScore", score);
+      }
+      highScoreElement.innerHTML = "High Score: " + highScore;
+    }
+      
 
-.row {
-  display: flex;
-}
+      // Function to end the game
+      function gameOver() {
+        ctx.fillStyle = "white";
+        ctx.font = "40px Arial";
+        const text = "Game Over";
+        const textWidth = ctx.measureText(text).width;
+        const textX = canvas.width / 2 - textWidth / 2;
+        const textY = canvas.height / 2;
+        ctx.fillText(text, textX, textY);
+        playAgainButton.style.display = "block";
+      }
 
-button {
-  flex: 1;
-  padding: 10px;
-  font-size: 18px;
-  background-color: #e0e0e0;
-  border: none;
-  border-radius: 4px;
-  margin: 5px;
-  cursor: pointer;
-}
+      // Function to start the game
+      function startGame() {
+        playButton.style.display = "none";
+        playing.style.display = "block";
+        playAgainButton.style.display = "none";
+        score = 0;
+        updateScore();
+        updateHighScore();
+        snake = [{ x: 10, y: 10 }];
+        direction = "right";
+        generateFood();
+        game();
+      }
 
-button.wide {
-  flex: 2;
-}
+      // Event listener for arrow key presses
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowUp" && direction !== "down") {
+          direction = "up";
+        } else if (e.key === "ArrowDown" && direction !== "up") {
+          direction = "down";
+        } else if (e.key === "ArrowRight" && direction !== "left") {
+          direction = "right";
+        } else if (e.key === "ArrowLeft" && direction !== "right") {
+          direction = "left";
+        }
+      });
 
-button.operator {
-  background-color: #ff9800;
-  color: white;
-}
+      // Declare a variable to track the pause state
+      let isPaused = false;
 
-button#equal {
-  background-color: #4caf50;
-}
+      // Function to handle the pause functionality
+      function togglePause() {
+        if (isPaused) {
+          // Resume the game
+          gameLoop = setInterval(() => {
+            clearCanvas();
+            drawFood();
+            moveSnake();
+            drawSnake();
+            updateHighScore();
 
-button:hover {
-  background-color: #d4d4d4;
-}
+            if (isCollision()) {
+              gameOver();
+              clearInterval(gameLoop);
+            }
+          }, 100);
+          pauseButton.innerHTML = "Pause";
+        } else {
+          // Pause the game
+          clearInterval(gameLoop);
+          pauseButton.innerHTML = "Resume";
+        }
+        isPaused = !isPaused;
+      }
 
-button:active {
-  background-color: #9e9e9e;
-}
+      // Event listener for pause button click
+      const pauseButton = document.getElementById("pauseButton");
+      pauseButton.addEventListener("click", togglePause);
 
-</style> -->
+
+      // Event listener for play button click
+      const playButton = document.getElementById("playButton");
+      playButton.addEventListener("click", startGame);
+
+      // Event listener for play again button click
+      const playAgainButton = document.getElementById("playAgainButton");
+      playAgainButton.addEventListener("click", startGame);
+    </script>
+  </body>
+</html>
