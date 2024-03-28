@@ -1,0 +1,58 @@
+<div class="conatiner">
+	<div class="post-content">
+		<div class="home_slide"></div>
+		<div class="home_slide"></div>
+		<div class="home_slide"></div>
+		<div class="home_slide"></div>
+		<div class="home_slide"></div>
+		<div class="home_slide"></div>
+	</div>
+	<div class="footer"></div>
+</div>
+
+var totalSlides = jQuery('.home_slide').length;
+    
+    // Function to get the current slide index
+    function getCurrentSlideIndex() {
+        var scrollTop = jQuery(window).scrollTop();
+        var windowHeight = jQuery(window).height() - 300;
+        
+        return Math.floor(scrollTop / windowHeight);
+    }
+    
+    jQuery(window).on('wheel', function(e) {
+        var currentIndex = getCurrentSlideIndex();
+        
+        if (e.originalEvent.deltaY < 0) {
+            // Scrolling up
+            if (currentIndex > 0) {
+                currentIndex--;
+            }
+        } else {
+            // Scrolling down
+            if (currentIndex < totalSlides - 1) {
+                currentIndex++;
+            }
+        }
+        
+        var targetSlide = jQuery('.home_slide').eq(currentIndex);
+        var targetOffset = targetSlide.offset().top;
+        
+        jQuery('html, body').stop().animate({scrollTop: targetOffset}, 'slow');
+        
+        // Prevent default scroll behavior
+        e.preventDefault();
+    });
+
+
+    ======================
+
+
+    Mustaca
+http://maxn62.sg-host.com/
+dev@thead.com.au
+Thead1121!
+Wordpress
+gsydm1057.siteground.biz
+mustaca@maxn62.sg-host.com
+Mochi@098
