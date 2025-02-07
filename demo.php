@@ -1,3 +1,4 @@
+https://chatgpt.com/share/67a3527d-78ec-8010-be23-b66e9ff167e4
 document.addEventListener("DOMContentLoaded", function(){
     const customSelects = document.querySelectorAll(".custom-select");
 
